@@ -40,7 +40,7 @@ function Disciplinas(){
         }
         
         
-        //Funções para abrir e fechar forma de adicionar disciplinas
+        //Fun??es para abrir e fechar forma de adicionar disciplinas
         const color = "white";
         let style = { borderColor: color, backgroundColor: color };
         style.display = formVisible;
@@ -55,7 +55,7 @@ function Disciplinas(){
             e.preventDefault();
         }
 
-        //Função para abrir e fechar forma de adicionar faltas
+        //Fun??o para abrir e fechar forma de adicionar faltas
         let styleFaltas = { borderColor: color, backgroundColor: color };
         styleFaltas.display = faltasFormVisible;
 

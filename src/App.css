@@ -1,110 +1,51 @@
 .App{
-	display:flex;
-	flex-direction:row;
-	justify-content:center;
-    margin-top:10%;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:1fr;
+    align-items: center;
+    align-content: center;
+}
+.navbar{
+    color:lightblue;
+    height:100px;
+    z-index:10;
+    position:fixed;
 }
 
-.form-popup {
-  display: none;
-  margin-top:10%;
-  border: 3px solid #f1f1f1;
-  z-index: 9;
-  margin-right:auto;
-  margin-left:auto;
-  text-align:center;
-}
+.site-calendar-demo-card {
+  width: auto;
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+  grid-column:2/3;
+  grid-row-start:1;
 
-.btnAdd {
-  display:block;  
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 250px;
-  margin-bottom:10px;
-  margin-top:10px;
-   margin-right:auto;
-  margin-left:auto;
-  opacity: 0.8;
-}
-.btnCancel{
-  display:block;
-  background-color: red;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 250px;
-  margin-bottom:10px;
-  margin-top:10px;
-  margin-right:auto;
-  margin-left:auto;
-  
-  opacity: 0.8;
-}
-
-.btnAddFaltas{
-
-  display:block;
-  background-color: blue;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 150px;
-  margin-bottom:10px;
-  margin-top:10px;
-  margin-right:auto;
-  margin-left:auto;
-  opacity: 0.8;
-}
-.addDisciplina{
-display:block;
-  background-color: blue;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 250px;
-  margin-bottom:10px;
-   margin-right:auto;
-  margin-left:auto;
-  opacity: 0.8;
 
 }
-
-.form-container{
-    margin-left: auto;
-    margin-right: auto;
+.calendar-demo{
+    width:auto;
 }
-.form-container input[type=text],input[type=number]{
-  display:block;
-  width: 400px;
-  padding: 15px;
-  margin-right:auto;
-  margin-left:auto;
-  border: solid lightblue;
-  background: #f1f1f1;
+.graph-demo{
+height:300px;
+grid-column:1/2;
+grid-row-start:1;
 }
 
-.DisciplinesDisplay{
-    display:flex;
-    flex-direction:row;
-    padding:15px;
-    margin-right:auto;
-  margin-left:auto;
-
+.events {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-
-.DPFlex,.faltasFlex,.ProfFlex,.addFaltasFlex{
-     display:flex;
-     flex-direction:column;
-     margin:15px;
-       
+.events .ant-badge-status {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  text-overflow: ellipsis;
+  font-size: 12px;
 }
-
-.DIVIDER{
-    width:200px;
+.notes-month {
+  text-align: center;
+  font-size: 28px;
+}
+.notes-month section {
+  font-size: 28px;
 }
