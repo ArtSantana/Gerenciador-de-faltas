@@ -1,4 +1,4 @@
-﻿﻿import React from "react";
+﻿﻿﻿﻿﻿import React from "react";
 import "./App.css";
 import "antd/dist/antd.css";
 import "./index.css";
@@ -7,7 +7,9 @@ import { Calendar, Badge } from "antd";
 function onPanelChange(value, mode) {
   console.log(value, mode);
 }
-
+function onSelect(date){
+  console.log("dia: " + date)
+}
 function Calendary() {
   function getListData(value) {
     let listData;
@@ -60,6 +62,7 @@ function Calendary() {
   return (
     <div className="site-calendar-demo-card">
       <Calendar
+        onSelect={(e)=>{console.log(e.format('dddd'))}}
         className="calendar-demo"
         dateCellRender={dateCellRender}
         monthCellRender={monthCellRender}

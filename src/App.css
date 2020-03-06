@@ -17,7 +17,7 @@
   flex-direction: row;
   list-style: none;
   justify-content: space-evenly;
- 
+
   color: white;
 }
 .site-calendar-demo-card {
@@ -25,7 +25,7 @@
   border: 1px solid #f0f0f0;
   border-radius: 4px;
   font-size: 10px;
-  padding-top:50px;
+  padding-top: 50px;
 }
 .graph-demo {
   height: 200px;
