@@ -11,10 +11,15 @@ const conn = mysql.createConnection({
 })
 
 router.post('/', (req, res) => {
+  const data = req.body;
   conn.connect((err) => {
     if(err) console.log(err);
   })
-  //conn.query(`INSERT INTO Disciplinas(diaAula, horaAula, ID_Curso) VALUES (${req.body.dayWeek}, ${}, ${})`)
+  let query = `INSERT INTO Disciplinas(diaAula, horaAula, ID_Curso) 
+              VALUES (${data.dayWeek}, ${data.creditsHour}, ${data.idCurso})`
+  conn.query(query, (err) => {
+    if(err) console.log(err);
+  })
 })
 
 module.export = router;
