@@ -8,17 +8,17 @@ const conn = mysql.createConnection({
   password: process.env.DB_PASS,
   database: process.env.DB
 })
+conn.connect((err) => {
+  if(err) console.log(err);
+});
 
 router.post('/', (req, res) => {
   const data = req.body;
-  conn.connect((err) => {
-    if(err) console.log(err);
-  })
   let query = `INSERT INTO Disciplinas(diaAula, horaAula) 
               VALUES (${data.dayWeek}, ${data.creditsHour});`
   conn.query(query, (err) => {
-    if(err) console.log(err);
-  })
+    //if(err) console.log(err);
+  })  
   res.send('Toma no cu rapaz');
 })
 
