@@ -14,25 +14,11 @@ function Calendary() {
   function getListData(value) {
     let listData;
     switch (value.format("dddd")) {
-      case 8:
-        listData = [
-          { type: "warning", content: "This is warning event." },
-          { type: "success", content: "This is usual event." }
-        ];
-        break;
-      case 10:
-        listData = [
-          { type: "warning", content: "This is warning event." },
-          { type: "success", content: "This is usual event." },
-          { type: "error", content: "This is error event." }
-        ];
-        break;
+
       case "Monday":
         listData = [
           { type: "warning", content: "MATERIA 1 DE SEGUNDA" },
           { type: "warning", content: "MATERIA 2 DE SEGUNDA" }
-
-          
 
         ];
         break;

@@ -3,7 +3,7 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   align-items: center;
-  align-content: center;
+  justify-items:center;
 }
 .navbar {
   background-color: rgb(86, 101, 150);
@@ -12,13 +12,17 @@
   z-index: 10;
   position: fixed;
 }
-.nav-links {
+.cursoName{
+    text-align:center;
+    font-size:30px;
+}
+.nav-links, .calLink,.faltasLink {
   display: flex;
   flex-direction: row;
   list-style: none;
   justify-content: space-evenly;
-
   color: white;
+
 }
 .site-calendar-demo-card {
   width: 100vw;
@@ -28,8 +32,10 @@
   padding-top: 50px;
 }
 .graph-demo {
+  padding-top: 50px;
   height: 200px;
   width: 600px;
+  grid-column:1/3;
 }
 
 .events {

@@ -19,10 +19,10 @@ function App() {
           
           <ul className="nav-links">
           <h3 className="nav-links">Gerenciador Faltas</h3>
-            <Link to="/Calendario">
+            <Link className="calLink" to="/Calendario">
               <li>Calendario</li>
             </Link>
-            <Link to="/Faltas">
+            <Link className="faltasLink" to="/Faltas">
               <li>Faltas</li>
             </Link>
           </ul>
