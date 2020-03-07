@@ -21,7 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "devArt": "nodemon server/index.js"
+    "devArt": "node server/index.js"
   },
   "eslintConfig": {
     "extends": "react-app"
