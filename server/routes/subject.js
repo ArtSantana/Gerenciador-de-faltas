@@ -8,9 +8,7 @@ const conn = mysql.createConnection({
   password: process.env.DB_PASS,
   database: process.env.DB
 })
-conn.connect((err) => {
-  if(err) console.log(err);
-});
+conn.connect((err) => {if(err) console.log(err)});
 
 router.post('/create', (req, res) => {
   const data = req.body;
@@ -19,26 +17,26 @@ router.post('/create', (req, res) => {
   conn.query(query, (err) => {
     if(err) res.send('Error');
   })  
-  res.send('OK');
+  res.sendStatus(201);
 })
 
 router.delete('/', (req, res) => {
   const data = req.body;
-  const query = `DELETE FROM Disciplinas WHERE ID=${data.id}`
+  const query = `DELETE FROM Disciplinas WHERE ID=${data.id};`
 
   conn.query(query, (err) => {
-    if(err) res.send('Error');
+    if(err) res.sendStatus(200);
   })
-  res.send('OK')
+  res.sendStatus(200);
 })
 
-router.post('/search', (req, res) => {
+router.get('/search', (req, res) => {
   const data = req.body;
-  const query = `SELECT * from Disciplinas WHERE ID_Curso=${data.id_curso}`
+  const query = `SELECT * from Disciplinas WHERE ID_Disciplinas=${data.id_course};`
   
   conn.query(query, (err, result) => {
     if(err) res.send('Error');
-    res.json(result)
+    res.sendStatus(200).json(result)
   })
 })
 
