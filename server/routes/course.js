@@ -16,9 +16,9 @@ router.post('/create', (req, res) => {
   const query = `INSERT INTO Cursos(nome, ID_Estudante) 
                 VALUES(${data.name}, ${data.id_student});`
   conn.query(query, (err) => {
-    res.send('Error');
+    if(err) res.sendStatus(400);
+    else res.sendStatus(201);
   })
-  res.sendStatus(201);
 })
 
 router.get('/search', (req, res) => {

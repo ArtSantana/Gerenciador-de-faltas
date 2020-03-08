@@ -13,19 +13,19 @@ conn.connect((err) => {if(err) console.log(err)});
 router.post('/create', (req, res) => {
   const data = req.body;
   const query = `INSERT INTO Disciplinas(diaAula, horaAula) 
-              VALUES (${data.dayWeek}, ${data.creditsHour});`
+                VALUES (${data.dayWeek}, ${data.creditsHour});`
   conn.query(query, (err) => {
-    if(err) res.send('Error');
+    if(err) res.status(400).send('Bad arguments');
+    else res.sendStatus(201);
   })  
-  res.sendStatus(201);
 })
 
-router.delete('/', (req, res) => {
+router.delete('/delete', (req, res) => {
   const data = req.body;
   const query = `DELETE FROM Disciplinas WHERE ID=${data.id};`
 
   conn.query(query, (err) => {
-    if(err) res.sendStatus(200);
+    if(err) res.status(404).send('Not Found');
   })
   res.sendStatus(200);
 })
@@ -35,8 +35,8 @@ router.get('/search', (req, res) => {
   const query = `SELECT * from Disciplinas WHERE ID_Disciplinas=${data.id_course};`
   
   conn.query(query, (err, result) => {
-    if(err) res.send('Error');
-    res.sendStatus(200).json(result)
+    if(err) res.status(404).send('Not Found\nBad arguments');
+    else res.status(200).json(result)
   })
 })
 

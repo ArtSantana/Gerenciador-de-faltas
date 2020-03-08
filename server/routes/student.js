@@ -11,4 +11,14 @@ const conn = mysql.createConnection({
 
 conn.connect((err) => {if(err) console.log(err)});
 
+router.delete('/delete', (req, res) => {
+  const data = req.body;
+  const query = `DELETE FROM Estudante WHERE ID=${data.id};`
+
+  conn.query(query, (err) => {
+    if(err) res.status(400).send('Se fudê todo dia isso');
+    else res.sendStatus(204);
+  })
+})
+
 module.exports = router;
