@@ -15,8 +15,7 @@ Create Table Estudante (
 );
 
 Create Table Cursos (
-    ID int not null auto_increment,
-    nivel varchar (50),
+    ID int not null auto_increment,    
     nome varchar (60),
     ID_Estudante int not null,
 
