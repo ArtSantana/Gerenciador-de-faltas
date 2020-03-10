@@ -1,4 +1,5 @@
 import React from "react";
+import {CursosProvider} from './CursosContext';
 import "./App.css";
 import Disciplinas from "./Disciplinas";
 import Graphs from "./Graphs";
@@ -13,6 +14,7 @@ import {
 
 function App() {
   return (
+    <CursosProvider>
     <div className="App">
       <Router>
         <nav className="navbar">
@@ -34,6 +36,7 @@ function App() {
         </Switch>
       </Router>
     </div>
+    </CursosProvider>
   );
 }
 

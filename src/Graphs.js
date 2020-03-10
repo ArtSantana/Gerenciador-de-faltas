@@ -1,49 +1,35 @@
-import React from "react";
+import React,{useState,useContext} from "react";
 import ReactDOM from "react-dom";
+import {CursosContext}  from "./CursosContext";
 import "./App.css";
 import { ResponsiveBar } from "@nivo/bar";
 
 function Graphs() {
-  const data = [
-    {
-      
-      Disciplina: "Estrutura de dados",
-      Faltas: 39,
-      FaltasColor: "blue",
-      maxFaltas: 20
-    },
-     {
-      Disciplina: "Engenharia de software",
-      Faltas: 5,
-      FaltasColor: "hsl(179, 70%, 50%)",
-      maxFaltas: 25
-    },
-         {
-      Disciplina: "Matematica discreta",
-      Faltas: 1,
-      FaltasColor: "red",
-      maxFaltas: 10
-    }
-  ];
+
+
+  const [cursos,setCursos] = useContext(CursosContext);
+
+
 
   return (
-    
-                
+
+    //{cursos.map(curso => (
     <div className="graph-demo">
-    {data.map(curso => (
-        
-         
-           
-            
+
+
+
+
+
+
           <ResponsiveBar
-            data={[curso]}
-            keys={["Faltas"]}
-            indexBy="Disciplina"
+            data={[cursos[0].disciplinas[0]]}
+            keys={["faltas"]}
+            indexBy="nomeDP"
             margin={{ top: 10, right: 130, bottom: 50, left: 150 }}
             padding={0.3}
             layout="horizontal"
-            colors={[curso.FaltasColor]}
-            maxValue={curso.maxFaltas}
+            colors={[cursos[0].disciplinas[0].faltasColor]}
+            maxValue={cursos[0].disciplinas[0].maxFaltas}
             defs={[
               {
                 id: "dots",
@@ -71,7 +57,7 @@ function Graphs() {
               tickSize: 5,
               tickPadding: 5,
               tickRotation: 0,
-              legend: curso.Faltas + "/" + curso.maxFaltas,
+              legend: cursos[0].disciplinas[0].faltas + "/" + cursos[0].disciplinas[0].maxFaltas,
               legendPosition: "end",
               legendOffset: 40
             }}
@@ -90,13 +76,13 @@ function Graphs() {
             motionStiffness={90}
             motionDamping={15}
           />
-          
-          )
 
-          
-       )}
+
+
+
+
     </div>
-   
+
   );
 }
 export default Graphs;

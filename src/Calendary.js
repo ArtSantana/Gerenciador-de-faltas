@@ -1,16 +1,30 @@
-﻿import React from "react";
+﻿import React,{useState,useContext} from "react";
+import {CursosContext}  from "./CursosContext";
 import "./App.css";
 import "antd/dist/antd.css";
 import "./index.css";
 import { Calendar, Badge } from "antd";
 
-function onPanelChange(value, mode) {
-  console.log(value, mode);
-}
-function onSelect(date) {
-  console.log("dia: " + date);
-}
+
+
+
+
+
 function Calendary() {
+  const [cursos,setCursos] = useContext(CursosContext);
+  const [aulas,setAulas] = useState([
+    {
+      disciplina:{
+
+      }
+
+
+    }]
+  );
+
+
+
+
   function getListData(value) {
     let listData;
     switch (value.format("dddd")) {
@@ -46,6 +60,7 @@ function Calendary() {
   }
 
   return (
+
     <div className="site-calendar-demo-card">
       <Calendar
         onSelect={e => {
