@@ -1,7 +1,6 @@
 import React from "react";
-import {CursosProvider} from './CursosContext';
+import { CursosProvider } from "./CursosContext";
 import "./App.css";
-import Disciplinas from "./Disciplinas";
 import Graphs from "./Graphs";
 import Calendary from "./Calendary";
 import {
@@ -15,27 +14,26 @@ import {
 function App() {
   return (
     <CursosProvider>
-    <div className="App">
-      <Router>
-        <nav className="navbar">
-          
-          <ul className="nav-links">
-          <h3 className="nav-links">Gerenciador Faltas</h3>
-            <Link className="calLink" to="/Calendario">
-              <li>Calendario</li>
-            </Link>
-            <Link className="faltasLink" to="/Faltas">
-              <li>Faltas</li>
-            </Link>
-          </ul>
-        </nav>
+      <div className="App">
+        <Router>
+          <nav className="navbar">
+            <ul className="nav-links">
+              <h3 className="title">Gerenciador Faltas</h3>
+              <Link className="calLink" to="/Calendario">
+                <li>Calendario</li>
+              </Link>
+              <Link className="faltasLink" to="/Faltas">
+                <li>Faltas</li>
+              </Link>
+            </ul>
+          </nav>
 
-        <Switch>
-          <Route path="/Calendario" exact={true} component={Calendary} />
-          <Route path="/Faltas" exact={true} component={Graphs} />
-        </Switch>
-      </Router>
-    </div>
+          <Switch>
+            <Route path="/Calendario" exact={true} component={Calendary} />
+            <Route path="/Faltas" exact={true} component={Graphs} />
+          </Switch>
+        </Router>
+      </div>
     </CursosProvider>
   );
 }
