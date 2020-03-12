@@ -19,7 +19,7 @@ export const CursosProvider = props => {
           faltas: 20,
           maxFaltas: 25,
           diasAula: [1, 2, 3, 0, 1, 0, 0],
-          faltasColor: "red"
+          faltasColor: "blue"
         }
       ]
     },
@@ -31,7 +31,7 @@ export const CursosProvider = props => {
           faltas: 1,
           maxFaltas: 10,
           diasAula: [1, 2, 3, 0, 1, 0, 0],
-          faltasColor: "green"
+          faltasColor: "orange"
         },
         {
           nomeDP: "Disciplina 1 Curso 2",

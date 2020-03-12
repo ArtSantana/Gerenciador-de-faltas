@@ -32,9 +32,10 @@ function Graphs() {
 
   const lineGraphSettings = {
     theme: {
-      fontSize: "15px",
+      fontSize: "18px",
       textColor: "black",
-      fontWeight: 10000
+
+
     }
   };
 
@@ -53,48 +54,34 @@ function Graphs() {
       <div className="graph-demo">
         {selectIndex.disciplinas.map(dp => (
           <ResponsiveBar
+            className="Bar"
             data={[dp]}
             keys={["faltas"]}
             indexBy="nomeDP"
-            margin={{ top: 10, right: 0, bottom: 50, left: 300 }}
+            margin={{ top: 10, right: 0, bottom: 50, left: 220 }}
             padding={0.3}
             layout="horizontal"
             colors={dp.faltasColor}
-            maxValue={cursos[0].disciplinas[0].maxFaltas}
-            defs={[
-              {
-                id: "dots",
-                type: "patternDots",
-                background: "inherit",
-                color: "#38bcb2",
-                size: 4,
-                padding: 1,
-                stagger: true
-              },
-              {
-                id: "lines",
-                type: "patternLines",
-                background: "inherit",
-                color: "#eed312",
-                rotation: -45,
-                lineWidth: 5,
-                spacing: 10
-              }
-            ]}
+            maxValue={dp.maxFaltas}
+
             borderColor={{ from: "color", modifiers: [["darker", 1.6]] }}
             theme={lineGraphSettings.theme}
             axisTop={null}
-            axisRight={null}
+            axisRight={{
+              legend:
+                dp.faltas +
+                "/" +
+                dp.maxFaltas,
+              legendPosition: "end",
+              legendOffset: -20,
+              layout:"horizontal"
+            }}
             axisBottom={{
               tickSize: 0,
-              tickPadding: 5,
-              tickRotation: 0,
-              legend:
-                cursos[0].disciplinas[0].faltas +
-                "/" +
-                cursos[0].disciplinas[0].maxFaltas,
-              legendPosition: "end",
-              legendOffset: 40
+              tickPadding: 1,
+              tickRotation: -1,
+              fontSize: "10px"
+
             }}
             axisLeft={{
               tickSize: 6,

@@ -17,8 +17,9 @@ function App() {
       <div className="App">
         <Router>
           <nav className="navbar">
+          <h3 className="title">Gerenciador Faltas</h3>
             <ul className="nav-links">
-              <h3 className="title">Gerenciador Faltas</h3>
+
               <Link className="calLink" to="/Calendario">
                 <li>Calendario</li>
               </Link>
