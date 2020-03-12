@@ -11,17 +11,15 @@ export const CursosProvider = props => {
           nomeDP: "Disciplina 1 Curso 1",
           faltas: 8,
           maxFaltas: 25,
-          diasAula: [1, 2, 3, 0, 1, 0, 0],
-          faltasColor: "blue"
+          professor:"Professor Fulano"
         },
         {
           nomeDP: "Disciplina 2 Curso 1",
           faltas: 20,
           maxFaltas: 25,
-          diasAula: [1, 2, 3, 0, 1, 0, 0],
-          faltasColor: "blue"
+          professor:"Professor Fulano"
         }
-      ]
+      ],
     },
     {
       curso: "Curso 2",
@@ -30,17 +28,32 @@ export const CursosProvider = props => {
           nomeDP: "Disciplina 1 Curso 2",
           faltas: 1,
           maxFaltas: 10,
-          diasAula: [1, 2, 3, 0, 1, 0, 0],
-          faltasColor: "orange"
+          professor:"Professor Fulano"
         },
         {
           nomeDP: "Disciplina 1 Curso 2",
           faltas: 15,
           maxFaltas: 20,
-          diasAula: [1, 2, 3, 0, 1, 0, 0],
-          faltasColor: "orange"
+          professor:"Professor Fulano"
         }
-      ]
+      ],
+    },
+    {
+      curso: "Curso 3",
+      disciplinas: [
+        {
+          nomeDP: "Disciplina 1 Curso 3",
+          faltas: 10,
+          maxFaltas: 10,
+          professor:"Professor Fulano"
+        },
+        {
+          nomeDP: "Disciplina 2 Curso 3",
+          faltas: 1,
+          maxFaltas: 20,
+          professor:"Professor Fulano"
+        }
+      ],
     }
   ]);
 

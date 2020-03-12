@@ -1,14 +1,19 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, Component } from "react";
 import ReactDOM from "react-dom";
 import { CursosContext } from "./CursosContext";
 import "./App.css";
-import { ResponsiveBar } from "@nivo/bar";
+import Chart from "react-apexcharts";
 import { Select } from "antd";
 import { Button } from "antd";
+import Cursos from './Cursos';
 
 const { Option } = Select;
 
 function Graphs() {
+
+
+
+
   const SelectCurso = () => {
     return (
       <div className="selCurso">
@@ -21,6 +26,7 @@ function Graphs() {
         >
           <Option value="0">{cursos[0].curso}</Option>
           <Option value="1">{cursos[1].curso}</Option>
+          <Option value="2">{cursos[2].curso}</Option>
         </Select>
       </div>
     );
@@ -30,75 +36,144 @@ function Graphs() {
     setSelectIndex(cursos[value]);
   }
 
-  const lineGraphSettings = {
-    theme: {
-      fontSize: "18px",
-      textColor: "black",
 
-
-    }
-  };
 
   const [cursos, setCursos] = useContext(CursosContext);
   const [selectIndex, setSelectIndex] = useState(cursos[0]);
 
   return (
-    //{cursos.map(curso => (
     <div className="cursosContainer">
-      <div className="inputs">
-        <Button className="addCurso" type="primary">
-          Adicionar curso
-        </Button>
-        <SelectCurso />
-      </div>
-      <div className="graph-demo">
-        {selectIndex.disciplinas.map(dp => (
-          <ResponsiveBar
-            className="Bar"
-            data={[dp]}
-            keys={["faltas"]}
-            indexBy="nomeDP"
-            margin={{ top: 10, right: 0, bottom: 50, left: 220 }}
-            padding={0.3}
-            layout="horizontal"
-            colors={dp.faltasColor}
-            maxValue={dp.maxFaltas}
+    <Button className="addCurso" type="primary">
+      Adicionar curso
+      </Button>
+      <Cursos/>
 
-            borderColor={{ from: "color", modifiers: [["darker", 1.6]] }}
-            theme={lineGraphSettings.theme}
-            axisTop={null}
-            axisRight={{
-              legend:
-                dp.faltas +
-                "/" +
-                dp.maxFaltas,
-              legendPosition: "end",
-              legendOffset: -20,
-              layout:"horizontal"
-            }}
-            axisBottom={{
-              tickSize: 0,
-              tickPadding: 1,
-              tickRotation: -1,
-              fontSize: "10px"
+      <div className="app">
+        <div className="row">
+          <div className="mixed-chart">
+          <h2 className="faltas">Faltas por disciplina</h2>
+          <SelectCurso/>
+            {selectIndex.disciplinas.map(dp => (
+              <Chart
+                options={{
+                  chart: {
+                    type: "bar",
+                    height: 100,
+                    foreColor: "white"
+                  },
+                  legend: {
+                    labels: {
+                        colors: "white",
+                        useSeriesColors: false
+                    }},
+                  plotOptions: {
+                    bar: {
+                      barHeight: "100%",
+                      distributed: true,
+                      horizontal: true,
+                      dataLabels: {
+                        position: "top"
+                      },
+                      colors: {
+                        ranges: [
+                          {
+                            from: 0,
+                            to: 0,
+                            color: "white"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  colors: ["#f5b342"],
+                  dataLabels: {
+                    enabled: true,
+                    textAnchor: "start",
 
-            }}
-            axisLeft={{
-              tickSize: 6,
-              tickPadding: 1,
-              tickRotation: 0,
-              legend: "",
-              legendPosition: "middle",
-              legendOffset: -40
-            }}
-            labelSkipWidth={15}
-            labelSkipHeight={12}
-            labelTextColor={{ from: "color", modifiers: [["darker", 1.6]] }}
-            animate={true}
-            motionStiffness={90}
-            motionDamping={15}
-          />
-        ))}
+                    formatter: function(val, opt) {
+                      return "";
+                    },
+                    offsetX: 0,
+                    dropShadow: {
+                      enabled: true
+                    }
+                  },
+                  stroke: {
+                    width: 1,
+                    colors: ["white"]
+                  },
+                  xaxis: {
+                    categories: [dp.nomeDP],
+
+                    labels: {
+                      show: true,
+                      rotate: -45,
+                      rotateAlways: false,
+                      hideOverlappingLabels: true,
+                      showDuplicates: false,
+                      trim: false,
+                      minHeight: undefined,
+                      maxHeight: 120,
+                      colors: "white"
+                    }
+                  },
+                  yaxis: {
+                    crosshairs: {
+                      show: false,
+                      position: "back",
+                      stroke: {
+                        color: "#white",
+                        width: 0,
+                        dashArray: 0
+                      }
+                    },
+                    max: dp.maxFaltas,
+                    labels: {
+                      show: false,
+                      style: {
+                        colors: [],
+                        fontSize: "15px",
+                        fontFamily: "Helvetica, Arial, sans-serif",
+                        fontWeight: 700,
+                        cssClass: "apexcharts-xaxis-label"
+                      }
+                    }
+                  },
+                  title: {
+                    text: "",
+                    align: "center",
+                    floating: true
+                  },
+                  tooltip: {
+                    theme: "dark",
+                    x: {
+                      show: false
+                    },
+                    y: {
+                      formatter: function() {
+                        return [dp.faltas] + "/" + [dp.maxFaltas];
+                      },
+                      title: {
+                        show: false,
+                        formatter: function() {
+                          return "";
+                        }
+                      }
+                    }
+                  }
+                }}
+                series={[
+                  {
+                    data: [dp.faltas]
+                  }
+                ]}
+                type="bar"
+                width="700"
+                height="130"
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -2,6 +2,8 @@ import React from "react";
 import { CursosProvider } from "./CursosContext";
 import "./App.css";
 import Graphs from "./Graphs";
+
+
 import Calendary from "./Calendary";
 import {
   BrowserRouter as Router,
@@ -17,14 +19,13 @@ function App() {
       <div className="App">
         <Router>
           <nav className="navbar">
-          <h3 className="title">Gerenciador Faltas</h3>
+            <h3 className="title">Gerenciador Faltas</h3>
             <ul className="nav-links">
-
               <Link className="calLink" to="/Calendario">
                 <li>Calendario</li>
               </Link>
               <Link className="faltasLink" to="/Faltas">
-                <li>Faltas</li>
+                <li>Cursos</li>
               </Link>
             </ul>
           </nav>
