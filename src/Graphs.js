@@ -5,15 +5,11 @@ import "./App.css";
 import Chart from "react-apexcharts";
 import { Select } from "antd";
 import { Button } from "antd";
-import Cursos from './Cursos';
+import Cursos from "./Cursos";
 
 const { Option } = Select;
 
 function Graphs() {
-
-
-
-
   const SelectCurso = () => {
     return (
       <div className="selCurso">
@@ -36,36 +32,34 @@ function Graphs() {
     setSelectIndex(cursos[value]);
   }
 
-
-
   const [cursos, setCursos] = useContext(CursosContext);
   const [selectIndex, setSelectIndex] = useState(cursos[0]);
 
   return (
     <div className="cursosContainer">
+    <div className = "cardsContainer">
     <Button className="addCurso" type="primary">
       Adicionar curso
       </Button>
-      <Cursos/>
-
+      <Cursos />
+      </div>
       <div className="app">
-        <div className="row">
-          <div className="mixed-chart">
-          <h2 className="faltas">Faltas por disciplina</h2>
-          <SelectCurso/>
+            <h2 className="faltas">Faltas por disciplina</h2>
+            <SelectCurso />
             {selectIndex.disciplinas.map(dp => (
               <Chart
                 options={{
                   chart: {
                     type: "bar",
-                    height: 100,
+                    height: 0,
                     foreColor: "white"
                   },
                   legend: {
                     labels: {
-                        colors: "white",
-                        useSeriesColors: false
-                    }},
+                      colors: "white",
+                      useSeriesColors: false
+                    }
+                  },
                   plotOptions: {
                     bar: {
                       barHeight: "100%",
@@ -168,14 +162,11 @@ function Graphs() {
                   }
                 ]}
                 type="bar"
-                width="700"
                 height="130"
               />
             ))}
           </div>
         </div>
-      </div>
-    </div>
   );
 }
 export default Graphs;

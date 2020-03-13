@@ -5,32 +5,20 @@ import "./App.css";
 import Chart from "react-apexcharts";
 import { Select } from "antd";
 import { Button } from "antd";
-import { Card } from 'antd';
+import { Card } from "antd";
 
-
-function Cursos(){
-
+function Cursos() {
   const [cursos, setCursos] = useContext(CursosContext);
-
-
-
-
 
   const { Meta } = Card;
 
-
-
-
-
-
-  return(
+  return (
     <div className="cursosCards">
-    {cursos.map(cr => (
-    <Card className="cards" title={cr.curso} extra={<a href="#">Editar</a>} style={{ width: 300 }}>
-          <p></p>
+      {cursos.map(cr => (
+        <Card className="cards" title={cr.curso} extra={<a href="#">Editar</a>}>
+          <p />
         </Card>
-        ))}
-
+      ))}
     </div>
   );
 }
