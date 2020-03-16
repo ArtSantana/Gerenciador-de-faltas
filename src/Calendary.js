@@ -26,16 +26,79 @@ function Calendary() {
 
 
   function getListData(value) {
-    let listData;
+    let listData = [];
     switch (value.format("dddd")) {
 
       case "Monday":
-        listData = [
-          { type: "warning", content: "MATERIA 1 DE SEGUNDA" },
-          { type: "warning", content: "MATERIA 2 DE SEGUNDA" }
+          {cursos[0].disciplinas.map(dp => (
+              dp.diasAulas[0]>0 ?
+                listData.push({type:"warning",content:dp.nomeDP + " - Aulas: " + dp.diasAulas[0]})
+                :
+                listData = listData
 
-        ];
+
+          ))}
         break;
+        case "Tuesday":
+            {cursos[0].disciplinas.map(dp => (
+                dp.diasAulas[1]>0 ?
+                  listData.push({type:"warning",content:dp.nomeDP + " - Aulas: " + dp.diasAulas[1]})
+                  :
+                  listData = listData
+
+
+            ))}
+          break;
+          case "Wednesday":
+              {cursos[0].disciplinas.map(dp => (
+                  dp.diasAulas[2]>0 ?
+                    listData.push({type:"warning",content:dp.nomeDP + " - Aulas: " + dp.diasAulas[2]})
+                    :
+                    listData = listData
+
+
+              ))}
+            break;
+            case "Thursday":
+                {cursos[0].disciplinas.map(dp => (
+                    dp.diasAulas[3]>0 ?
+                      listData.push({type:"warning",content:dp.nomeDP + " - Aulas: " + dp.diasAulas[3]})
+                      :
+                      listData = listData
+
+
+                ))}
+              break;
+            case "Friday":
+                  {cursos[0].disciplinas.map(dp => (
+                      dp.diasAulas[4]>0 ?
+                        listData.push({type:"warning",content:dp.nomeDP + " - Aulas: " + dp.diasAulas[4]})
+                        :
+                        listData = listData
+
+
+                  ))}
+                break;
+            case "Saturday":
+                      {cursos[0].disciplinas.map(dp => (
+                          dp.diasAulas[5]>0 ?
+                            listData.push({type:"warning",content:dp.nomeDP + " - Aulas: " + dp.diasAulas[5]})
+                            :
+                            listData = listData
+
+
+                      ))}
+                    break;
+          case "Sunday":
+                              {cursos[0].disciplinas.map(dp => (
+                                  dp.diasAulas[6]>0 ?
+                                    listData.push({type:"warning",content:dp.nomeDP + " - Aulas: " + dp.diasAulas[6]})
+                                    :
+                                    listData = listData
+
+
+                              ))}
+                            break;
       default:
     }
 
