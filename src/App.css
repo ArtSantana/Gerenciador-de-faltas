@@ -69,6 +69,7 @@
   border-radius: 4px;
   font-size: 10px;
   padding-top: 80px;
+  text-align: center;
 }
 .cursosContainer {
   display: flex;
@@ -126,6 +127,9 @@ label {
   font-weight: bold;
   margin: 5px;
   color: white;
+}
+.cursoForm{
+  width: 50vw;
 }
 @media (max-width: 700px) {
   .cursosContainer {

@@ -6,6 +6,7 @@ import Chart from "react-apexcharts";
 import { Select } from "antd";
 import { Button } from "antd";
 import Cursos from "./Cursos";
+import AddCursoForm from "./AddCursoForm";
 
 const { Option } = Select;
 
@@ -38,9 +39,7 @@ function Graphs() {
   return (
     <div className="cursosContainer">
     <div className = "cardsContainer">
-    <Button className="addCurso" type="primary">
-      Adicionar curso
-      </Button>
+    <AddCursoForm/>
       <Cursos />
       </div>
       <div className="app">
