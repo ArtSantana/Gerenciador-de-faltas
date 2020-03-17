@@ -1,7 +1,7 @@
 import React from "react";
 import { CursosProvider } from "./CursosContext";
 import "./App.css";
-import Graphs from "./Graphs";
+import Cursos from "./Cursos";
 
 
 import Calendary from "./Calendary";
@@ -32,7 +32,7 @@ function App() {
 
           <Switch>
             <Route path="/Calendario" exact={true} component={Calendary} />
-            <Route path="/Faltas" exact={true} component={Graphs} />
+            <Route path="/Faltas" exact={true} component={Cursos} />
           </Switch>
         </Router>
       </div>

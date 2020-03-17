@@ -21,11 +21,10 @@ const CursosForm = () => {
 
     <div>
       <Form
-        className="cursoForm"
-        labelCol={{ span: 4 }}
+        
         wrapperCol={{ span: 14 }}
         layout="horizontal"
-        size="middle"
+
       >
 
         <Form.Item label="Nome curso">
@@ -40,16 +39,16 @@ const CursosForm = () => {
           <DatePicker />
         </Form.Item>
 
-        <DisciplinasModal/>
+
       </Form>
     </div>
   );
 }
 const DisciplinasForm = () => {
   return(
-    <div>
+    <div className="dpForm">
     <Form
-      labelCol={{ span: 4 }}
+
       wrapperCol={{ span: 14 }}
       layout="horizontal"
     >
@@ -68,7 +67,7 @@ const DisciplinasForm = () => {
   );
 }
 
-const DisciplinasModal = () => {
+export const DisciplinasModal = () => {
   const [showDPModal, setShowDPModal] = useState(false);
 
     const openDPModal = () => {

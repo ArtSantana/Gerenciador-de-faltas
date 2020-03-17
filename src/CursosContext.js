@@ -20,7 +20,14 @@ export const CursosProvider = props => {
           maxFaltas: 25,
           professor:"Professor Fulano",
           diasAulas:[4,0,3,2,1,0,0]
-        }
+        },
+        {
+        nomeDP: "Disciplina 3 Curso 1",
+        faltas: 24,
+        maxFaltas: 25,
+        professor:"Professor Fulano",
+        diasAulas:[4,0,3,2,1,0,0]
+      }
       ],
     },
     {
