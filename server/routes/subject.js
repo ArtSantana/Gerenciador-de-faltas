@@ -8,18 +8,36 @@ const conn = mysql.createConnection({
   password: process.env.DB_PASS,
   database: process.env.DB
 })
+conn.connect((err) => {if(err) console.log(err)});
 
-router.post('/', (req, res) => {
+router.post('/create', (req, res) => {
   const data = req.body;
-  conn.connect((err) => {
-    if(err) console.log(err);
-  })
-  let query = `INSERT INTO Disciplinas(diaAula, horaAula) 
-              VALUES (${data.dayWeek}, ${data.creditsHour});`
+  const query = `INSERT INTO Disciplinas(diaAula, horaAula) 
+                VALUES (${data.dayWeek}, ${data.creditsHour});`
   conn.query(query, (err) => {
-    if(err) console.log(err);
+    if(err) res.status(400).send('Bad arguments');
+    else res.sendStatus(201);
+  })  
+})
+
+router.delete('/delete', (req, res) => {
+  const data = req.body;
+  const query = `DELETE FROM Disciplinas WHERE ID=${data.id};`
+
+  conn.query(query, (err) => {
+    if(err) res.status(404).send('Not Found');
   })
-  res.send('Toma no cu rapaz');
+  res.sendStatus(200);
+})
+
+router.get('/search', (req, res) => {
+  const data = req.body;
+  const query = `SELECT * from Disciplinas WHERE ID_Disciplinas=${data.id_course};`
+  
+  conn.query(query, (err, result) => {
+    if(err) res.status(404).send('Not Found\nBad arguments');
+    else res.status(200).json(result)
+  })
 })
 
 module.exports = router;
