@@ -8,11 +8,12 @@ Create Table Estudante (
     ID int not null auto_increment,
     user varchar (30) not null,
     pass varchar (30) not null,
-    email varchar (50) not null,
-    ID_Curso int not null,
+    email varchar (50) not null,    
     
     primary key (ID)
 );
+
+INSERT INTO Estudante (user, pass, email) VALUES ('fernandinho', 'akira', 'fernandinho@akira');
 
 Create Table Cursos (
     ID int not null auto_increment,    
@@ -25,8 +26,11 @@ Create Table Cursos (
 
 Create Table Disciplinas (
     ID int not null auto_increment,
-    diaAula int not null,
-    horaAula int not null,
+    nome varchar(30) not null,
+    professor varchar(60) not null,
+    diaAula int,
+    horaAula int ,
+    limite_faltas int not null,
     ID_Curso int not null,
     
     foreign key (ID_Curso) references Cursos (ID),

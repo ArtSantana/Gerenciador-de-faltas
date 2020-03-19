@@ -13,8 +13,7 @@ conn.connect((err) => {if(err) console.log(err)});
 
 router.post('/create', (req, res) => {
   const data = req.body;
-  const query = `INSERT INTO Cursos(nome, ID_Estudante) 
-                VALUES(${data.name}, ${data.id_student});`
+  const query = `INSERT INTO Cursos(nome, ID_Estudante) VALUES('${data.name}', 1);`
   conn.query(query, (err) => {
     if(err) res.sendStatus(400);
     else res.sendStatus(201);
