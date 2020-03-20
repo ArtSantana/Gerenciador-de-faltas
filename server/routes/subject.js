@@ -12,12 +12,14 @@ conn.connect((err) => {if(err) console.log(err)});
 
 router.post('/create', (req, res) => {
   const data = req.body;
-  const query = `INSERT INTO Disciplinas(diaAula, horaAula) 
-                VALUES (${data.dayWeek}, ${data.creditsHour});`
-  conn.query(query, (err) => {
+  conn.query(`SELECT * FROM Cursos WHERE nome='${data.name_curso}'`, (err, result) => {
     if(err) res.status(400).send('Bad arguments');
-    else res.sendStatus(201);
-  })  
+    const query = `INSERT INTO Disciplinas(professor, nome, limite_faltas, ID_Curso) VALUES ('${data.professor}', '${data.name}', '${data.limite_faltas}', '${result[0].ID}');`
+    conn.query(query, (err) => {
+      if(err) res.status(400).send('Bad arguments');
+      else res.sendStatus(201);
+    })  
+  })
 })
 
 router.delete('/delete', (req, res) => {
