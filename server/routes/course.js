@@ -20,7 +20,7 @@ router.post('/create', (req, res) => {
   })
 })
 
-router.get('/search', (req, res) => {
+router.post('/search', (req, res) => {
   const data = req.body;
   const query = `SELECT * FROM Cursos WHERE ID_Estudante=${data.id_student}`
 
