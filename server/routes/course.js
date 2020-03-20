@@ -26,7 +26,7 @@ router.get('/search', (req, res) => {
 
   conn.query(query, (err, result) => {
     if(err) res.sendStatus(404);
-    res.sendStatus(200).json(result);
+    res.json(result);
   })
 })
 
