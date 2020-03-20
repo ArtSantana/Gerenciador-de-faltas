@@ -32,7 +32,7 @@ router.delete('/delete', (req, res) => {
   res.sendStatus(200);
 })
 
-router.get('/search', (req, res) => {
+router.post('/search', (req, res) => {
   const data = req.body;
   const query = `SELECT * from Disciplinas WHERE ID_Disciplinas=${data.id_course};`
   
