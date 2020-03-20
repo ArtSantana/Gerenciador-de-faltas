@@ -14,13 +14,13 @@ function CursoInfo(props) {
 
   return (
     <div className="cursosCards">
-    <h1>{props.cursoIndex.curso}</h1>
+    <h1>{props.cursoIndex.name}</h1>
       {props.cursoIndex.disciplinas.map(dp => (
         <Card className="cards">
           <div className = "cardMap">
           <h3>{dp.nomeDP}</h3>
           <p>{dp.professor}</p>
-          <p>Faltas: {dp.faltas}/ {dp.maxFaltas}</p>
+          <p>Faltassss: {dp.faltas}/ {dp.maxFaltas}</p>
           <hr></hr>
           </div>
         </Card>

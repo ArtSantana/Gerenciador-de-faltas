@@ -1,6 +1,7 @@
 import React, { useState, useContext, Component } from "react";
 import ReactDOM from "react-dom";
 import { CursosContext } from "./CursosContext";
+
 import "./App.css";
 import {
   Form,
@@ -21,14 +22,14 @@ const CursosForm = () => {
 
     <div>
       <Form
-        
+
         wrapperCol={{ span: 14 }}
         layout="horizontal"
 
       >
 
-        <Form.Item label="Nome curso">
-          <Input />
+        <Form.Item  label="Nome curso">
+          <Input id = "CursoInput" />
         </Form.Item>
 
 
@@ -105,7 +106,49 @@ export const DisciplinasModal = () => {
 
 function AddCursoForm(){
 
+  const [cursos, setCursos] = useContext(CursosContext);
   const [showModal, setShowModal] = useState(false);
+
+
+  const cursoAdd = (course, id) => {
+      let data = {
+        name:(document.getElementById("CursoInput").value),
+        id:"1"
+      };
+      const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      }
+      fetch('/course/create', options);
+
+
+      setCursos(prevCursos =>[...cursos,data]);
+
+
+
+    }
+
+    const cursoSearch =  async (id_student) => {
+    let data = {
+      id_student:1
+    };
+    const options = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    }
+    const response = await fetch('/course/search',options);
+    data = await response.json()
+    Promise.resolve(data).then(() => {
+      console.log(data);
+    });
+}
+
 
     const openModal = () => {
       setShowModal(true);
@@ -122,13 +165,17 @@ function AddCursoForm(){
 
   return (
     <div>
-      <Button className="addCurso" type="primary" onClick={openModal}>
+    <Button  className="loadCurso" type="primary" onClick={cursoSearch}>
+      Carregar cursos
+    </Button>
+      <Button  className="addCurso" type="primary" onClick={openModal}>
         Adicionar curso
       </Button>
+
       <Modal
         title="Adicionar curso"
         visible={showModal}
-        onOk={handleOk}
+        onOk={cursoAdd}
         onCancel={handleCancel}
         width="40vw"
       >

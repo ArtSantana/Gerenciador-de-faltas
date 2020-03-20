@@ -37,6 +37,9 @@ Create Table Disciplinas (
     primary key (ID)
 );
 
+
+
+
 Create Table Faltas (
     ID int not null auto_increment,
     ID_Disciplina int not null,    
@@ -44,3 +47,7 @@ Create Table Faltas (
     foreign key (ID_Disciplina) references Disciplinas (ID),
     primary key (ID)
 );
+
+
+
+select * from Cursos;

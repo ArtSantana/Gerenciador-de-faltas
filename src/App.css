@@ -16,8 +16,6 @@
   z-index: 9;
 }
 
-
-
 .faltas {
   text-align: center;
   color: white;
@@ -53,7 +51,26 @@
   padding-left: 20px;
   height: 70px;
 }
-
+.diasAula {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.diasAulaInput {
+  width: 40px;
+}
+.AulasLabel {
+  display: block;
+  float: top;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 25px;
+  margin-right: 10px;
+}
+.individualDay {
+  display: flex;
+  flex-direction: column;
+}
 .site-calendar-demo-card {
   width: 100vw;
   border: 1px solid #f0f0f0;
@@ -69,22 +86,21 @@
   align-items: center;
   align-content: center;
 }
-.SelectAddCurso{
+.SelectAddCurso {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 150px;
-
 }
-.selCurso{
+.selCurso {
   font-size: 20px;
   font-weight: bold;
-
 }
-.addCurso,.addDP{
-  width:10vw;
+.addCurso,
+.addDP {
+  width: 10vw;
   min-width: 170px;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 .cardsContainer {
@@ -92,7 +108,6 @@
   flex-direction: column;
   align-items: center;
   align-content: center;
-
 }
 .app {
   background-color: rgb(112, 154, 208);
@@ -103,6 +118,9 @@
   margin-right: 30px;
   margin-left: 30px;
 }
+.erro {
+  padding-top: 300px;
+}
 .cursosCards {
   width: 25vw;
   min-width: 170px;
@@ -110,8 +128,6 @@
   padding-right: 30px;
   margin-left: 10px;
   text-align: center;
-  border: 1px solid blue;
-
 }
 
 .events {
@@ -134,8 +150,7 @@
   font-size: 28px;
 }
 
-
-@media (max-width: 700px) {
+@media (max-width: 500px) {
   .cursosContainer {
     display: flex;
     flex-direction: column;
@@ -154,6 +169,13 @@
   }
   .addCurso {
     margin-top: 100px;
-    width:100%;
+    width: 50%;
+  }
+  .diasAula {
+    flex-direction: column;
+    align-items: start;
+  }
+  .diasAulaInput {
+    width: 90px;
   }
 }
