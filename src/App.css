@@ -66,13 +66,25 @@
   min-width: 170px;
   margin-top: 10px;
 }
-.diasAulaInput {
-  width: 40px;
+.dpForm {
+  width:20vw;
 }
-.individualDay {
+.diasAula {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+
+
 }
+.AulasLabel {
+  display: block;
+  float: top;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 25px;
+  margin-right: 10px;
+}
+
 /* ---------------------------- */
 
 /* Chart styling */
@@ -88,20 +100,6 @@
 .faltas {
   text-align: center;
   color: white;
-}
-.diasAula {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.AulasLabel {
-  display: block;
-  float: top;
-  font-weight: bold;
-  color: black;
-  margin-bottom: 25px;
-  margin-right: 10px;
 }
 /* ---------------------------- */
 /* Cursos */
@@ -162,7 +160,7 @@
 }
 /* ---------------------------- */
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
   .cursosContainer {
     display: flex;
     flex-direction: column;
@@ -187,7 +185,5 @@
     flex-direction: column;
     align-items: start;
   }
-  .diasAulaInput {
-    width: 90px;
-  }
+
 }

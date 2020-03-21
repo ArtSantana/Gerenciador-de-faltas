@@ -50,4 +50,4 @@ Create Table Faltas (
 
 
 
-select * from Cursos;
+select * from Disciplinas;

@@ -58,7 +58,7 @@ function Cursos() {
         <AddCursoForm />
           </div>
         :
-        selectIndex.hasOwnProperty('disciplinas') == false ?
+        selectIndex.hasOwnProperty('Disciplines') == false ?
         <div>
           <div className="SelectAddCurso">
             <SelectCurso />
@@ -68,7 +68,7 @@ function Cursos() {
             <div className="cardsContainer">
               <h2>Curso: {selectIndex.nome}</h2>
               <h2>Nenhuma disciplina cadastrada!</h2>
-              <DisciplinasModal />
+              <DisciplinasModal cursoIndex={selectIndex} />
             </div>
             </div>
             </div>
@@ -81,9 +81,9 @@ function Cursos() {
               <div className="cursosContainer">
                 <div className="cardsContainer">
                   <CursoInfo cursoIndex={selectIndex} />
-                  <DisciplinasModal />
+                  <DisciplinasModal cursoIndex={selectIndex} />
                 </div>
-
+                {/*
                 <div className="app">
                   <h2 className="faltas">Faltas por disciplina</h2>
 
@@ -207,6 +207,7 @@ function Cursos() {
                     />
                   ))}
                 </div>
+                */}
               </div>
             </div>
 
