@@ -104,12 +104,36 @@ export const DisciplinasModal = () => {
 
 
 
-function AddCursoForm(){
+function FormsInputs(){
 
   const [cursos, setCursos] = useContext(CursosContext);
   const [showModal, setShowModal] = useState(false);
 
 
+
+  {/*Select courses from DB and assign them to cursosContext State*/}
+  const cursoSearch =  async (id_student) => {
+  let data = {
+    id_student:1
+  };
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  }
+  const response = await fetch('/course/search',options);
+  data = await response.json()
+  Promise.resolve(data).then(() => {
+    console.log(data);
+    setCursos(data);
+    console.log(cursos);
+  });
+  }
+
+
+{/*Insert course into DB from input form*/}
   const cursoAdd = (course, id) => {
       let data = {
         name:(document.getElementById("CursoInput").value),
@@ -126,28 +150,12 @@ function AddCursoForm(){
 
 
       setCursos(prevCursos =>[...cursos,data]);
-
+      cursoSearch();
 
 
     }
 
-    const cursoSearch =  async (id_student) => {
-    let data = {
-      id_student:1
-    };
-    const options = {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    }
-    const response = await fetch('/course/search',options);
-    data = await response.json()
-    Promise.resolve(data).then(() => {
-      console.log(data);
-    });
-}
+
 
 
     const openModal = () => {
@@ -165,9 +173,6 @@ function AddCursoForm(){
 
   return (
     <div>
-    <Button  className="loadCurso" type="primary" onClick={cursoSearch}>
-      Carregar cursos
-    </Button>
       <Button  className="addCurso" type="primary" onClick={openModal}>
         Adicionar curso
       </Button>
@@ -185,4 +190,4 @@ function AddCursoForm(){
 
   );
 }
-export default AddCursoForm;
+export default FormsInputs;

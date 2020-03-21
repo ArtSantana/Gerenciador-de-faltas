@@ -6,43 +6,57 @@ import Chart from "react-apexcharts";
 import { Select } from "antd";
 import { Button } from "antd";
 import CursoInfo from "./CursoInfo";
-import AddCursoForm from "./AddCursoForm";
-import { DisciplinasModal } from "./AddCursoForm";
+import AddCursoForm from "./FormsInputs";
+import { DisciplinasModal } from "./FormsInputs";
 
 const { Option } = Select;
 
 function Cursos() {
 
+
+
+
+
   const [cursos, setCursos] = useContext(CursosContext);
 
-  const [selectIndex, setSelectIndex] = useState(false);
+  {/*Controls Select course input used to control conditional rendering of info*/}
+  const [selectIndex, setSelectIndex] = useState(0);
+
+
+
+
+
+  function handleChange(value) {
+    setSelectIndex(cursos[value]);
+  }
 
   const SelectCurso = () => {
     return (
       <div className="selCurso">
         <Select
-          defaultValue={selectIndex.name}
+          defaultValue={selectIndex.nome}
           style={{ width: 200 }}
           onChange={handleChange}
         >
           {cursos.map((cr, index) => (
-            <Option value={index}>{cr.name}</Option>
+            <Option value={index}>{cr.nome}</Option>
           ))}
         </Select>
       </div>
     );
   };
 
-  function handleChange(value) {
-    setSelectIndex(cursos[value]);
-  }
 
 
+{/*Changes what is rendered depending on course and subject information avaliable*/}
   const ConditionalRender = () => {
 
       return(
-        setSelectIndex == false ?
+        selectIndex === 0 ?
+        <div className="SelectAddCurso">
+        <SelectCurso />
         <AddCursoForm />
+          </div>
         :
         selectIndex.hasOwnProperty('disciplinas') == false ?
         <div>
@@ -52,7 +66,7 @@ function Cursos() {
           </div>
           <div className="cursosContainer">
             <div className="cardsContainer">
-              <h2>Curso: {selectIndex.name}</h2>
+              <h2>Curso: {selectIndex.nome}</h2>
               <h2>Nenhuma disciplina cadastrada!</h2>
               <DisciplinasModal />
             </div>

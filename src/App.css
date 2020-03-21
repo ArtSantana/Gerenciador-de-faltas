@@ -3,6 +3,7 @@
   padding: 0;
   margin: 0;
 }
+/* Navigation bar styling */
 .navbar {
   display: flex;
   flex-direction: row;
@@ -14,11 +15,6 @@
   height: 80px;
   position: fixed;
   z-index: 9;
-}
-
-.faltas {
-  text-align: center;
-  color: white;
 }
 .nav-links,
 .calLink,
@@ -51,41 +47,9 @@
   padding-left: 20px;
   height: 70px;
 }
-.diasAula {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-.diasAulaInput {
-  width: 40px;
-}
-.AulasLabel {
-  display: block;
-  float: top;
-  font-weight: bold;
-  color: black;
-  margin-bottom: 25px;
-  margin-right: 10px;
-}
-.individualDay {
-  display: flex;
-  flex-direction: column;
-}
-.site-calendar-demo-card {
-  width: 100vw;
-  border: 1px solid #f0f0f0;
-  border-radius: 4px;
-  font-size: 10px;
-  padding-top: 80px;
-  text-align: center;
-}
-.cursosContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-}
+/* ---------------------------- */
+
+/* Inputs */
 .SelectAddCurso {
   display: flex;
   flex-direction: column;
@@ -102,13 +66,16 @@
   min-width: 170px;
   margin-top: 10px;
 }
-
-.cardsContainer {
+.diasAulaInput {
+  width: 40px;
+}
+.individualDay {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  align-content: center;
 }
+/* ---------------------------- */
+
+/* Chart styling */
 .app {
   background-color: rgb(112, 154, 208);
   color: white;
@@ -118,9 +85,42 @@
   margin-right: 30px;
   margin-left: 30px;
 }
-.erro {
-  padding-top: 300px;
+.faltas {
+  text-align: center;
+  color: white;
 }
+.diasAula {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.AulasLabel {
+  display: block;
+  float: top;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 25px;
+  margin-right: 10px;
+}
+/* ---------------------------- */
+/* Cursos */
+.cursosContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+
+.cardsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+}
+
 .cursosCards {
   width: 25vw;
   min-width: 170px;
@@ -129,7 +129,18 @@
   margin-left: 10px;
   text-align: center;
 }
+/* ---------------------------- */
 
+/* Calendar component styling */
+
+.site-calendar-demo-card {
+  width: 100vw;
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+  font-size: 10px;
+  padding-top: 80px;
+  text-align: center;
+}
 .events {
   list-style: none;
   margin: 0;
@@ -149,6 +160,7 @@
 .notes-month section {
   font-size: 28px;
 }
+/* ---------------------------- */
 
 @media (max-width: 500px) {
   .cursosContainer {

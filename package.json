@@ -1,5 +1,5 @@
 {
-  "name": "ger-faltas1103",
+  "name": "gerenciador-faltas",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -18,8 +18,6 @@
     "react-pure-lifecycle": "3.0.0",
     "react-router-dom": "5.1.2",
     "react-scripts": "3.4.0"
-
-
   },
   "scripts": {
     "start": "react-scripts start",
@@ -30,7 +28,12 @@
   },
   "proxy": "http://localhost:3000/",
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "sourceType": "module",
+      "allowImportExportEverywhere": true
+    }
   },
   "browserslist": {
     "production": [

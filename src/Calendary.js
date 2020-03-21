@@ -12,24 +12,8 @@ import {
   Calendar,
   Badge
 } from "antd";
-
-
-
-
-
-
 function Calendary() {
   const [cursos, setCursos] = useContext(CursosContext);
-  const [aulas, setAulas] = useState([{
-    disciplina: {
-
-    }
-
-
-  }]);
-
-
-
 
   function getListData(value) {
     let listData = [];

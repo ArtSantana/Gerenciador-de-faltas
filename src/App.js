@@ -2,8 +2,6 @@ import React from "react";
 import { CursosProvider } from "./CursosContext";
 import "./App.css";
 import Cursos from "./Cursos";
-
-
 import Calendary from "./Calendary";
 import {
   BrowserRouter as Router,
