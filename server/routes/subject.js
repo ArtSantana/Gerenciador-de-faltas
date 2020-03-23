@@ -34,7 +34,7 @@ router.delete('/delete', (req, res) => {
 
 router.post('/search', (req, res) => {
   const data = req.body;
-  const query = `SELECT * from Disciplinas WHERE ID_Disciplinas=${data.id_course};`
+  const query = `SELECT * from Disciplinas WHERE ID_Curso=${data.id_course};`
   
   conn.query(query, (err, result) => {
     if(err) res.status(404).send('Not Found\nBad arguments');
